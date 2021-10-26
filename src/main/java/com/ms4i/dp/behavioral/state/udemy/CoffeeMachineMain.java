@@ -1,5 +1,7 @@
 package com.ms4i.dp.behavioral.state.udemy;
 
+import java.util.logging.Logger;
+
 /**
  * Project: arizona-ddi
  *
@@ -13,8 +15,11 @@ public class CoffeeMachineMain {
         CoffeeMachine coffeeMachine = new CoffeeMachine();
 
         coffeeMachine.insertTheCoin();
+        coffeeMachine.returnTheCoin();
         coffeeMachine.pushTheButton();
+        coffeeMachine.returnTheCoin();
         coffeeMachine.takeTheCup();
+        coffeeMachine.returnTheCoin();
 
     }
 }
@@ -49,29 +54,34 @@ class CoffeeMachine {
 
 interface State {
 
+    Logger log = Logger.getLogger("State");
+
     void insertTheCoin(CoffeeMachine coffeeMachine);
+
     void pushTheButton(CoffeeMachine coffeeMachine);
+
     void takeTheCup(CoffeeMachine coffeeMachine);
+
     void returnTheCoin(CoffeeMachine coffeeMachine);
 }
 
 class NoCoinState implements State {
 
     public void insertTheCoin(CoffeeMachine coffeeMachine) {
-        System.out.println("Moneta zostala wrzucona");
+        log.info("Moneta zostala wrzucona");
         coffeeMachine.state = new CoinInsertedState();
     }
 
     public void pushTheButton(CoffeeMachine coffeeMachine) {
-        System.out.println("Wrzuc monete");
+        log.info("Wrzuc monete");
     }
 
     public void takeTheCup(CoffeeMachine coffeeMachine) {
-        System.out.println("Wrzuc monete");
+        log.info("Wrzuc monete");
     }
 
     public void returnTheCoin(CoffeeMachine coffeeMachine) {
-        System.out.println("Wrzuc monete");
+        log.info("Wrzuc monete");
 
     }
 }
@@ -79,20 +89,20 @@ class NoCoinState implements State {
 class CoinInsertedState implements State {
 
     public void insertTheCoin(CoffeeMachine coffeeMachine) {
-        System.out.println("Moneta zostala juz wrzucona");
+        log.info("Moneta zostala juz wrzucona");
     }
 
     public void pushTheButton(CoffeeMachine coffeeMachine) {
-        System.out.println("Nalewam kawe");
+        log.info("Nalewam kawe");
         coffeeMachine.state = new CupFullState();
     }
 
     public void takeTheCup(CoffeeMachine coffeeMachine) {
-        System.out.println("Wcisnij guzik");
+        log.info("Wcisnij guzik");
     }
 
     public void returnTheCoin(CoffeeMachine coffeeMachine) {
-        System.out.println("Zwracam monete");
+        log.info("Zwracam monete");
         coffeeMachine.state = new NoCoinState();
     }
 }
@@ -100,19 +110,19 @@ class CoinInsertedState implements State {
 class CupFullState implements State {
 
     public void insertTheCoin(CoffeeMachine coffeeMachine) {
-        System.out.println("Zabierz kubek");
+        log.info("Zabierz kubek");
     }
 
     public void pushTheButton(CoffeeMachine coffeeMachine) {
-        System.out.println("Zabierz najpierw kubek");
+        log.info("Zabierz najpierw kubek");
     }
 
     public void takeTheCup(CoffeeMachine coffeeMachine) {
-        System.out.println("Zabrano kubek");
+        log.info("Zabrano kubek");
         coffeeMachine.state = new NoCoinState();
     }
 
     public void returnTheCoin(CoffeeMachine coffeeMachine) {
-        System.out.println("Za pozno");
+        log.info("Za pozno");
     }
 }
