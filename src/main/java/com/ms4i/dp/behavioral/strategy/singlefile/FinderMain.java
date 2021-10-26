@@ -15,18 +15,12 @@ interface FinderStrategy {
 }
 
 class FinderByIdStrategy implements FinderStrategy {
-    FinderByIdStrategy() {
-    }
-
     public String find() {
         return "Find by id";
     }
 }
 
 class FinderByNameStrategy implements FinderStrategy {
-    FinderByNameStrategy() {
-    }
-
     public String find() {
         return "Find by name";
     }
