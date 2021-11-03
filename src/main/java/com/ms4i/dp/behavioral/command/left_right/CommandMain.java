@@ -1,4 +1,4 @@
-package com.ms4i.dp.behavioral.command;
+package com.ms4i.dp.behavioral.command.left_right;
 
 import java.util.ArrayList;
 import java.util.List;
