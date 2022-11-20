@@ -1,4 +1,4 @@
-package com.ms4i.dp.visitor;
+package com.ms4i.dp.behavioral.visitor;
 
 /**
  * Project: arizona-ddi

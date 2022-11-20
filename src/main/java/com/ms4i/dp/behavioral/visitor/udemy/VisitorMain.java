@@ -1,4 +1,4 @@
-package com.ms4i.dp.visitor.udemy;
+package com.ms4i.dp.behavioral.visitor.udemy;
 
 import java.util.Arrays;
 import java.util.List;
